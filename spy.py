@@ -33,7 +33,8 @@ plt.plot(data.index[+ int(ma_days):], data['Close'][+ int(ma_days):],
          label='Closing Price', alpha=0.7)
 
 # Plot the 200-day moving average for the past year
-plt.plot(data.index, data['MA'], label= ma_days +'-day MA', linestyle='--', alpha=0.7)
+plt.plot(data.index, data['MA'], label=ma_days +
+         '-day MA', linestyle='--', alpha=0.7)
 
 # Highlight buy (above MA) and sell (below MA) signals for the past year
 plt.fill_between(data.index, data['Close'], data['MA'],
@@ -59,7 +60,7 @@ else:
 # Calculate the number of days since the last crossover for the past year
 cross_over_date = data[data['Above_MA'] != data['Above_MA'].shift(1)].index[-1]
 days_since_last_crossover = (end_date - cross_over_date).days
-print(f"{days_since_last_crossover} days")
+print(f"{days_since_last_crossover} days ago")
 
 
 # Show the plot
